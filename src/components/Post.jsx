@@ -2,7 +2,7 @@ import styles from "./Post.module.css";
 
 export function Post() {
   return (
-    <article className={styles.Post}>
+    <article className={styles.post}>
       <header>
         <div className={styles.author}>
           <img className={styles.avatar} src="https://github.com/robson-gds.png"/>
@@ -19,7 +19,11 @@ export function Post() {
         <p>Fala galera</p>
         <p>consectetur adipiscing elit. Maecenas non ex nisl. Ut vel finibus diam, nec sodales justo.</p>
         <p><a href="">neque.iaculis/dictum</a></p>
-        <p><a href="">#neque #iaculis #dictum</a></p>
+        <p>
+          <a href="">#neque</a>{' '}
+          <a href="">#iaculis</a>{' '}
+          <a href="">#dictum</a>
+        </p>
       </div>
     </article>
   )
