@@ -6,7 +6,7 @@ import { Comment } from "./Comment";
 
 import styles from "./Post.module.css";
 
-export function Post({ author, publishedAt }) {
+export function Post({ author, publishedAt, content }) {
   const publishedDateFormatted = format(publishedAt, "d 'de' MMMM 'às' 	HH:mm'h'", {
     locale: ptBR,
   })
@@ -33,14 +33,13 @@ export function Post({ author, publishedAt }) {
       </header>
 
       <div className={styles.content}>
-        <p>Fala galera</p>
-        <p>consectetur adipiscing elit. Maecenas non ex nisl. Ut vel finibus diam, nec sodales justo.</p>
-        <p><a href="">neque.iaculis/dictum</a></p>
-        <p>
-          <a href="">#neque</a>{' '}
-          <a href="">#iaculis</a>{' '}
-          <a href="">#dictum</a>
-        </p>
+        {content.map(line => {
+          if (line.type === 'paragraph') {
+            return <p>{line.content}</p>
+          } else if (line.type === 'link') {
+            return <p><a href="#">{line.content}</a></p>
+          }
+        })}
       </div>
 
       <form className={styles.commentForm}>
